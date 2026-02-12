@@ -32,7 +32,6 @@ class FarmaciaController extends Controller
     public function index(Request $request)
     {
         $medicamentos = $this->listaMedicamentos();
-
         return view('farmacia.index', compact('medicamentos'));
     }
 
@@ -40,16 +39,26 @@ class FarmaciaController extends Controller
     {
         $carrito = session()->get('carrito', []);
 
-        $med = $request->medicamento;
+        $medicamentos = $this->listaMedicamentos();
 
-        if(isset($carrito[$med])) {
-            $carrito[$med]++;
-        } else {
-            $carrito[$med] = 1;
+        foreach($medicamentos as $med) {
+            if($med['nombre'] == $request->medicamento) {
+                $carrito[] = $med;
+            }
         }
 
         session()->put('carrito', $carrito);
 
         return back()->with('success', 'Medicamento agregado al carrito');
     }
+
+    public function pagar()
+    {
+        session()->forget('carrito');
+
+        return redirect()->route('farmacia.index')
+            ->with('success', 'Pago realizado con éxito. Gracias por su compra.');
+    }
+
 }
+

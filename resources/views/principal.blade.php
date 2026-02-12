@@ -16,35 +16,62 @@
             min-height: 100vh;
             color: #fff;
         }
+
+        .logo-main {
+            font-size: 4rem;
+        }
+
         .card {
             border-radius: 15px;
         }
+
         .icon-box {
             font-size: 3rem;
             color: #0d6efd;
+        }
+
+        .btn-hero {
+            background: #ffffff;
+            color: #0d6efd;
+            font-weight: 600;
+            border-radius: 50px;
+            padding: 12px 40px;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-hero:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
 
 <div class="container d-flex align-items-center justify-content-center min-vh-100">
-    <div class="col-lg-10">
+    <div class="col-lg-10 text-center">
+
+        <!-- LOGO CENTRADO -->
+        <div class="mb-4">
+            <i class="bi bi-heart-pulse-fill logo-main"></i>
+        </div>
 
         <!-- HERO -->
-        <div class="text-center mb-5">
-            <h1 class="fw-bold">Sistema Médico Integral</h1>
+        <div class="mb-5">
+            <h1 class="fw-bold display-5">Sistema Médico Integral</h1>
             <p class="lead mt-3">
                 Plataforma digital para el registro de pacientes, consultas médicas
-                y generación automática de recetas.
+                y generación automática de recetas electrónicas.
             </p>
 
-            <a href="{{ route('paciente.index') }}" class="btn btn-light btn-lg mt-3">
-                <i class="bi bi-heart-pulse"></i> Iniciar atención médica
+            <a href="{{ route('citas.create') }}" class="btn btn-hero btn-lg mt-3">
+                <i class="bi bi-calendar-check me-2"></i>
+                Agendar Consulta
             </a>
         </div>
 
         <!-- FEATURES -->
-        <div class="row g-4">
+        <div class="row g-4 mt-4">
             <div class="col-md-4">
                 <div class="card shadow text-center p-4">
                     <div class="icon-box mb-3">
@@ -83,7 +110,7 @@
         </div>
 
         <!-- FOOTER -->
-        <div class="text-center mt-5">
+        <div class="mt-5">
             <small class="text-white-50">
                 © {{ date('Y') }} Sistema Médico | Proyecto académico
             </small>

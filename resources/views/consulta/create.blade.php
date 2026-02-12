@@ -89,9 +89,6 @@
                                 <option>Infección Respiratoria</option>
                                 <option>Bronquitis</option>
                                 <option>Alergia</option>
-                                <option>Neumonía</option>
-                                <option>Amigdalitis</option>
-                                <option>Dermatitis</option>
                             </select>
                         </div>
 

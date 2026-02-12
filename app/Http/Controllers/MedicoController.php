@@ -79,7 +79,7 @@ class MedicoController extends Controller
             ],
         ];
 
-
+        
         $data = $enfermedades[$request->enfermedad];
 
         $consulta = Consulta::create([
@@ -90,7 +90,7 @@ class MedicoController extends Controller
             'medicamentos' => $data['medicamentos']
         ]);
 
-        $consulta = Consulta::with('paciente')->findOrFail($id);
+        $consulta->load('paciente');
         return view('receta.show', compact('consulta'));
     }
     public function historial()
